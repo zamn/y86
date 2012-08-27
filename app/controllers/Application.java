@@ -13,7 +13,7 @@ public class Application extends Controller {
     );
   }
 
-  public static Result interpret() {
+  public static Result interpret(String command) {
     return ok(
       interpret.render()
     );
