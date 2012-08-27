@@ -15,3 +15,5 @@ $("#commandBox").bind("keyup change", function() {
 
 $("#commandBox").focus();
 $("#commandBox").val("=> ");
+
+$("#registerArea").load("/y86/registers");
