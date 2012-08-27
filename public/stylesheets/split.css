@@ -3,8 +3,21 @@ html {
   padding:0;
 }
 
+#content {
+  width: 200px;
+  display:inline;
+}
+
 #wrapper {
   width:200px;
+}
+
+#mainArea {
+  float:left;
+}
+
+#registerArea {
+  float:right;
 }
 
 h1 {
