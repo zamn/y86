@@ -9,5 +9,5 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Y86 Pages
-POST     /y86/interpret              controllers.Application.interpret()
+POST     /y86/interpret              controllers.Application.interpret(String)
 GET      /y86/registers              controllers.Application.getRegisters()

@@ -1,0 +1,26 @@
+html {
+  margin:0;
+  padding:0;
+}
+
+#wrapper {
+  width:200px;
+}
+
+h1 {
+  text-align:center;
+}
+
+ul {
+  list-style:none;
+  display:inline;
+}
+
+li.registers {
+  float:left;
+}
+
+li.pointers {
+  float:right;
+}
+

@@ -9,16 +9,20 @@ public class Application extends Controller {
   
   public static Result index() {
     return ok(
-        index.render()
+      index.render()
     );
   }
 
-  public static Result interpret() {
-    return TODO;
+  public static Result interpret(String command) {
+    return ok(
+      interpret.render()
+    );
   }
 
   public static Result getRegisters() {
-    return TODO;
+    return ok(
+      registers.render()
+    );
   }
   
 }

@@ -2,16 +2,23 @@
 <html>
   <head>
     <title>Y86 Assembler Debugger</title>
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/split.css")" />
   </head>
   <body>
     <h1>Y86 Assembler Debugger</h1>
-    <div id="mainArea">
-      <textarea class="mousetrap" id="commandBox" rows="20" cols="100"></textarea>
-    </div>
-      <div id="registerArea">
-    </div>
-    <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")"></script>
-    <script src="@routes.Assets.at("javascripts/mousetrap.min.js")"></script>
-    <script src="@routes.Assets.at("javascripts/y86.js")"></script>
+    <ul>
+      <li>
+        <div id="mainArea">
+          <textarea class="mousetrap" id="commandBox" rows="20" cols="100"></textarea>
+        </div>
+      </li>
+      <li>
+        <div id="registerArea">
+        </div>
+      </li>
+    </ul>
+    <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/mousetrap.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/y86.js")" type="text/javascript"></script>
   </body>
 </html>
