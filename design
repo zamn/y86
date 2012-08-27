@@ -7,3 +7,14 @@ interpret.page -> sends the command to external java program which will update t
   -- modifies registers.page to represent internal structures.
 
 registers.page -> will have a whole listing of all registers~~
+
+ERROR CODES
+######  explanation
+------  --------
+0       Okay
+1       Memory out of bounds
+2       Non existant label for jump
+3       Please input integer/character
+4       Empty stack
+5       getString()
+6       getInteger()
