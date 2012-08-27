@@ -1,0 +1,9 @@
+index.page -> you enter all your command and shit
+  -- once stuff is entered ajax call is made to interpret.page
+    -- passes the command as a param
+  -- after interpret is done it will then refresh the registers.page which will have all of the updated information on it.
+
+interpret.page -> sends the command to external java program which will update the internal variables and such.
+  -- modifies registers.page to represent internal structures.
+
+registers.page -> will have a whole listing of all registers~~
