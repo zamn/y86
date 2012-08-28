@@ -26,7 +26,7 @@ $("#commandBox").focus(function() {
             updateCommandBox("\nEmpty Stack.");
             break;
           case 5:
-            $.post("/y86/state?type=output", function(data) {
+            $.post("/y86/state?format=output", function(data) {
               updateCommandBox("\nOutput: " + data);
             });
             break;
@@ -37,7 +37,7 @@ $("#commandBox").focus(function() {
       });
     }
 
-  $.getJSON("/y86/state", function(data) {
+  $.getJSON("/y86/state?format=standard", function(data) {
     var registers      = data[0],
         flags          = data[1],
         stack          = data[2],

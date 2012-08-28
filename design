@@ -17,3 +17,58 @@ ERROR CODES
 3       Please input integer/character
 4       Empty stack
 5       getOutput()
+
+COMMANDS:
+APP: irmovl $5,%eax
+irmovl $5,%eax
+[[5,0,0,0,0,0,0,0],[false,false,false],[],"0"]
+APP: irmovl $10,%ecx
+irmovl $10,%ecx
+[[5,0,10,0,0,0,0,0],[false,false,false],[],"8"]
+APP: irmovl $20,%esi
+irmovl $20,%esi
+[[5,0,10,0,20,0,0,0],[false,false,false],[],"c"]
+APP: irmovl $4,%edi
+irmovl $4,%edi
+[[5,0,10,0,20,4,0,0],[false,false,false],[],"10"]
+APP: irmovl $5,%edi
+irmovl $5,%edi
+[[5,0,10,0,20,5,0,0],[false,false,false],[],"14"]
+APP: irmovl $10,%esp
+irmovl $10,%esp
+[[5,0,10,0,20,5,10,0],[false,false,false],[],"18"]
+APP: irmovl $5,%edi
+irmovl $5,%edi
+[[5,0,10,0,20,5,10,0],[false,false,false],[],"1c"]
+[info] Compiling 1 Scala source to /home/zamn/code/java/Y86/target/scala-2.9.1/classes...
+
+--- (RELOAD) ---
+
+[info] play - Application started (Dev)
+APP: irmovl $5,%ebp
+irmovl $5,%ebp
+APP: irmovl $5,%ebp
+irmovl $5,%ebp
+APP: rrmovl %ebp,%esi
+rrmovl %ebp,%esi
+APP: addl %ebp,%esi
+addl %ebp,%esi
+APP: irmovl $10,%edi
+irmovl $10,%edi
+APP: subl %edi,%esi
+subl %edi,%esi
+APP: push %edi
+push %edi
+APP: pushl %edi
+pushl %edi
+APP: pushl %ebp
+pushl %ebp
+APP: popl %ecx
+popl %ecx
+APP: popl %esi
+popl %esi
+APP: divl %esi,%edi
+divl %esi,%edi
+APP: multl %edi,%edx
+multl %edi,%edx
+
