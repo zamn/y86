@@ -1,10 +1,19 @@
 $("#commandBox").focus(function() {
   Mousetrap.bind("enter", function(e) {
-    $("#commandBox").val(function(i, v) {  return v + "\n=> "; });
-    $("#commandBox").scrollTop(99999);
+    var commands = $("#commandBox").val().split("\n");
+    var command = commands[commands.length-1].substring(3);
+    console.log(command);
+    if (command === "clear") {
+      $("#commandBox").val("=> ");
+    }
+    else {
+      $("#commandBox").val(function(i, v) {  return v + "\n=> "; });
+      $("#commandBox").scrollTop(99999);
+    }
     return false;
   });
 });
+
 $("#commandBox").blur(function() {
   Mousetrap.unbind("enter");
 });
