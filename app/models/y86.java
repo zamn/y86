@@ -142,11 +142,9 @@ public class y86 {
 
       Command com = new y86.Command();
 
-      if (command_string.startsWith(".align")) {
-
-
-
-      }
+      /*if (command_string.startsWith(".align")) {
+        return 0;
+      }*/
 
       if (command_string.contains(":")) {//This means we have a label
         com.setLabel(command_string.substring(0,command_string.indexOf(":")));
@@ -345,7 +343,7 @@ public class y86 {
         if(com.label!=null &&com.label.equals(desiredLabel))
           return executeCMD();
         else
-          return 7;
+          return 8;
       }
       else
         return executeCMD();
@@ -360,12 +358,16 @@ public class y86 {
     //System.out.println(cmdPos);
     //System.out.println(cmdPos);
     processCMD("irmovl $40,%eax");
+    System.out.println(registers[0]);
     processCMD("irmovl $-5,%ebx");
+    System.out.println(registers[0]);
     processCMD("addl %eax,%eax");
+    System.out.println(registers[0]);
     processCMD("jge top");
+    System.out.println(registers[0]);
     processCMD("subl %eax,%eax");
+    System.out.println(registers[0]);
     processCMD("top:addl %ebx,%eax");
-    System.out.println(of);
     System.out.println(registers[0]);
     //System.out.println(cmds.size());
 
@@ -375,7 +377,7 @@ public class y86 {
   {
     temp2Output = getOutput2();
     Command c = cmds.get(cmdPos);
-    System.out.println(c.name);
+    //System.out.println(c.name);
     if(c.type == 'A'){
       if(c.subtype == 0)
       {
@@ -396,11 +398,11 @@ public class y86 {
       }
       else if(c.subtype == 2)
       {
-        //mr
+        return 1;
       }
       else if(c.subtype == 3)
       {
-        //rm
+        return 1;
       }
     }
     else if(c.type == 'B'){
@@ -467,7 +469,7 @@ public class y86 {
         else
           of = false;
         registers[ref.indexOf(c.paramTwo)] = registers[ref.indexOf(c.paramTwo)] - registers[ref.indexOf(c.paramOne)];
-        System.out.println(registers[ref.indexOf(c.paramTwo)]);
+        //System.out.println(registers[ref.indexOf(c.paramTwo)]);
       }
       else if(c.subtype == 2)
       {
@@ -523,7 +525,7 @@ public class y86 {
 
     }
     else if(c.type == 'D'){
-      System.out.println(registers[0]);
+      //System.out.println(registers[0]);
       boolean jump = false;
       if(c.subtype == 0)
       {
@@ -579,9 +581,9 @@ public class y86 {
               executeCMD();
               cmdPos++;
             }
-            System.out.println(output);
-            System.out.println(cmdPos);
-            System.out.println(cmds.size());
+            //System.out.println(output);
+            //System.out.println(cmdPos);
+            //System.out.println(cmds.size());
             return 0;
           }
         }
@@ -597,8 +599,8 @@ public class y86 {
     else if(c.type == 'E') {
       if(c.subtype == 0)
       {
-        System.out.println(c.paramOne);
-        System.out.println(ref.indexOf(c.paramOne));
+        //System.out.println(c.paramOne);
+        //System.out.println(ref.indexOf(c.paramOne));
         stack.push(registers[ref.indexOf(c.paramOne)]);
       }
       else if(c.subtype == 1)
@@ -626,9 +628,9 @@ public class y86 {
 
   public String getOutput()
   {
-    if (output.length() > 2) {
-      output = output.substring(0, output.length()-2);
-    }
+    //if (output.length() > 2 && output.matches("/\s/")) {
+      //output = output.substring(0, output.length()-2);
+    //}
     tempOutput = output;
     output = "";
     return tempOutput;
