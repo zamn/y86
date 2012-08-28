@@ -29,13 +29,10 @@ h1 {
 }
 
 #registers-wrapper table {
-  margin: 0 10px 0 10px;
-}
-
-.registers {
+  margin: 0 10px 10px 10px;
   float:left;
 }
 
-.pointers {
-  float:left;
+.green {
+  background-color:green;
 }
