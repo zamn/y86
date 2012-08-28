@@ -7,6 +7,14 @@ $("#commandBox").focus(function() {
       $("#commandBox").val("=> ");
     }
     else {
+      $.post(
+        "/y86/interpret",
+        {command: "teehee"},
+        function(responseText) {
+          alert(responseText);
+        },
+        "html"
+      );
       $("#commandBox").val(function(i, v) {  return v + "\n=> "; });
       $("#commandBox").scrollTop(99999);
     }
