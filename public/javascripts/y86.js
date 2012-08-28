@@ -3,8 +3,9 @@ $("#commandBox").focus(function() {
     var commands = $("#commandBox").val().split("\n");
     var command = commands[commands.length-1].substring(3);
     if (command.indexOf("%") != -1) {
-      command = command.replace("%", "%25");
-    } if (command === "clear") {
+      command = command.replace(/%/g, "%25");
+    }
+    if (command === "clear") {
       $("#commandBox").val("=> ");
     } else if (command !== "") {
       $.post("/y86/interpret?command=" + command, function(returnCode) {
