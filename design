@@ -16,5 +16,4 @@ ERROR CODES
 2       Non existant label for jump
 3       Please input integer/character
 4       Empty stack
-5       getString()
-6       getInteger()
+5       getOutput()

@@ -29,7 +29,7 @@ public class Test {
 
   public int interpret(String message) {
     Random r = new Random();
-    int derp = r.nextInt(10);
+    int derp = r.nextInt(6);
     return derp;
   }
 
