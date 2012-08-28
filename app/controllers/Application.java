@@ -2,9 +2,10 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-
+import java.util.*;
 import views.html.*;
 import models.*;
+import com.google.gson.*;
 
 public class Application extends Controller {
   
@@ -24,8 +25,13 @@ public class Application extends Controller {
 
   public static Result getState() {
     Test t = new Test();
+    y86 asm = new y86();
+    ArrayList temp = asm.getState();
+    Gson gson = new Gson();
+    String JSON = gson.toJson(temp);
+    System.out.println(JSON);
     return ok(
-      state.render(t.getState())
+      state.render(JSON)
     );
   }
 
