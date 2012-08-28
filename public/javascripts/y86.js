@@ -26,7 +26,7 @@ $("#commandBox").focus(function() {
             updateCommandBox("\nEmpty Stack.");
             break;
           case 5:
-            $.post("/y86/state?type=output", function(data) {
+            $.post("/y86/state?format=output", function(data) {
               updateCommandBox("\nOutput: " + data);
             });
             break;

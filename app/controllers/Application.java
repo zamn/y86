@@ -16,22 +16,26 @@ public class Application extends Controller {
   }
 
   public static Result interpret(String command) {
-    //Test t = new Test();
     System.out.println("APP: " + command);
     return ok(
       interpret.render(y86.processCMD(command))
     );
   }
 
-  public static Result getState() {
-    Test t = new Test();
+  public static Result getState(String format) {
     y86 asm = new y86();
-    ArrayList temp = asm.getState();
-    Gson gson = new Gson();
-    String JSON = gson.toJson(temp);
-    System.out.println(JSON);
+    String result = "";
+    if (format.equalsIgnoreCase("standard")) {
+      ArrayList temp = asm.getState();
+      Gson gson = new Gson();
+      result = gson.toJson(temp);
+      System.out.println(result);
+    }
+    else if (format.equalsIgnoreCase("output")) {
+      result = asm.getOutput();
+    }
     return ok(
-      state.render(JSON)
+      state.render(result)
     );
   }
 
