@@ -1,13 +1,46 @@
 var isHalted = false;
+var currentCommands = [];
+var poppedCommands  = [""];
+
+
+Mousetrap.bind("up", function(e) {
+  if (currentCommands.length) {
+    var commands = $("#commandBox").val().split("\n");
+    poppedCommands.push(commands.pop().slice(3));
+    var c = currentCommands.slice(-1)[0];
+    if (typeof c !== "undefined")
+      commands.push("=> "+c)
+    $("#commandBox").val(commands.join("\n"));
+    $("#commandBox").scrollTop(99999);
+  }
+  return false;
+});
+
+Mousetrap.bind("down", function(e) {
+  if (poppedCommands.length) {
+    poppedCommands.length = 1; //Broken so limiting at one.
+    var commands = $("#commandBox").val().split("\n");
+    commands.pop().slice(3);
+    var c = poppedCommands.slice(-1)[0];
+    if (typeof c !== "undefined") {
+      poppedCommands.pop();
+      commands.push("=> "+c)
+    }
+    $("#commandBox").val(commands.join("\n"));
+    $("#commandBox").scrollTop(99999);
+  }
+  return false;
+});
 
 $("#commandBox").focus(function() {
   if (!isHalted) {
+
     Mousetrap.bind("enter", function(e) {
       var commands = $("#commandBox").val().split("\n"),
           command  = commands[commands.length-1].substring(3);
 
       //Save most recent command.
-      $("#commandBox").data("command", command);
+      currentCommands.push(command);
 
       if (command.indexOf("%") != -1) {
         command = command.replace(/%/g, "%25");
