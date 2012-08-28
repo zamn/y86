@@ -21,6 +21,13 @@ public class Application extends Controller {
     );
   }
 
+  public static Result getState() {
+    Test t = new Test();
+    return ok(
+      state.render(t.getState())
+    );
+  }
+
   public static Result getRegisters() {
     return ok(
       registers.render()
