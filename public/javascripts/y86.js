@@ -11,7 +11,13 @@ $("#commandBox").focus(function() {
       $("#commandBox").val(function(i, v) {  return v + "\n=> "; });
       $("#commandBox").scrollTop(99999);
     }
-    return false;
+
+  $.getJSON("/y86/state", function(data) {
+      console.log("Great success!");
+      console.log(data);
+  });
+
+  return false;
   });
 });
 
