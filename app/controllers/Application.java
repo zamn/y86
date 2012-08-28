@@ -15,7 +15,7 @@ public class Application extends Controller {
 
   public static Result interpret(String command) {
     return ok(
-      interpret.render()
+      interpret.render(command)
     );
   }
 
