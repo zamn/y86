@@ -2,22 +2,28 @@
 <html>
   <head>
     <title>Y86 Assembler Debugger</title>
-    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/split.css")" />
     <link rel="stylesheet" href="@routes.Assets.at("stylesheets/normalize.css")" />
+    <link rel="stylesheet" href="@routes.Assets.at("stylesheets/split.css")" />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Russo+One'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Galdeano'>
   </head>
   <body>
-    <div id="content">
+    <header id="header">
       <h1>Y86 Assembler Debugger</h1>
+    </header>
+    <div id="content">
       <div id="mainArea">
         <textarea class="mousetrap" id="commandBox" rows="20" cols="100"></textarea>
       </div>
       <div id="registerArea">
       </div>
     </div>
-    <form>
+    <!--
+    <form action="/">
       <input type="file" name="uploadedFile" size="40"/>
       <input type="button" name="uploader" value="eval file" />
     </form>
+    -->
     <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
     <script src="@routes.Assets.at("javascripts/mousetrap.min.js")" type="text/javascript"></script>
     <script src="@routes.Assets.at("javascripts/y86.js")" type="text/javascript"></script>
