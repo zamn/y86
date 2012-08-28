@@ -10,4 +10,5 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Y86 Pages
 POST     /y86/interpret              controllers.Application.interpret(command: String)
+GET      /y86/state                  controllers.Application.getState()
 GET      /y86/registers              controllers.Application.getRegisters()

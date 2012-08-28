@@ -4,6 +4,7 @@ import play.*;
 import play.mvc.*;
 
 import views.html.*;
+import models.*;
 
 public class Application extends Controller {
   
@@ -14,8 +15,16 @@ public class Application extends Controller {
   }
 
   public static Result interpret(String command) {
+    Test t = new Test();
     return ok(
-      interpret.render(command)
+      interpret.render(t.interpret(command))
+    );
+  }
+
+  public static Result getState() {
+    Test t = new Test();
+    return ok(
+      state.render(t.getState())
     );
   }
 
