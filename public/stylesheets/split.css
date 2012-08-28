@@ -1,39 +1,41 @@
-html {
-  margin:0;
-  padding:0;
-}
-
 #content {
-  width: 200px;
-  display:inline;
-}
+  width: 710px;
+  margin: 0 auto;
 
-#wrapper {
-  width:200px;
-}
-
-#mainArea {
-  float:left;
-}
-
-#registerArea {
-  float:right;
+  overflow:hidden;
+  height:1%;
 }
 
 h1 {
   text-align:center;
 }
 
-ul {
-  list-style:none;
-  display:inline;
-}
-
-li.registers {
+#mainArea {
   float:left;
 }
 
-li.pointers {
-  float:right;
+#commandBox {
+  /* ends up as 500px wide */
+  width: 494px;
 }
 
+#registerArea {
+  float:left;
+  margin-left: 10px;
+}
+
+#registers-wrapper {
+  width:200px;
+}
+
+#registers-wrapper table {
+  margin: 0 10px 0 10px;
+}
+
+.registers {
+  float:left;
+}
+
+.pointers {
+  float:left;
+}
