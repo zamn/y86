@@ -37,11 +37,11 @@ $("#commandBox").focus(function() {
       });
     }
 
-  $.getJSON("/y86/state", function(data) {
-    var registers      = data[0],
-        flags          = data[1],
-        stack          = data[2],
-        programCounter = data[3][0];
+  $.getJSON("/y86/state?"+Date.now(), function(data) {
+    var registers      = mapToString(data[0]),
+        flags          = mapToString(data[1]),
+        stack          = mapToString(data[2]),
+        programCounter = data[3];
 
     //Parse to proper types where necessary.
     //registers      = registers.map(function(x) { return parseInt(x, 10); });
@@ -63,8 +63,8 @@ $("#commandBox").focus(function() {
     greenIfChange(
         $("#programCounter td")[0],
         $("#programCounter td").text(),
-        programCounter);
-    $("#programCounter td").text(programCounter);
+        "0x"+programCounter);
+    $("#programCounter td").text("0x"+programCounter);
 
     //Clear and update the stack table.
     $("#stack tr td").parent().remove();
@@ -98,4 +98,7 @@ var updateCommandBox = function(text) {
 var greenIfChange = function(el, oldval, newval) {
   oldval !== newval ?
     $(el).addClass("green") : $(el).removeClass("green");
+}
+var mapToString = function(arr) {
+  return arr.map(function(x) { return x.toString(); });
 }
