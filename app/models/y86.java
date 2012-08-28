@@ -1,4 +1,4 @@
-package y86package;
+package models;
 
 import java.util.*;
 
@@ -79,11 +79,23 @@ public class y86 {
 	static public Stack<Integer> stack = new Stack<>();
 	static int statusCode = 0;
 	static String output;
-	public static void processCMD(String command_string) {
+	public static int processCMD(String command_string) {
+		System.out.println(command_string);
+		if(ref.size()==0)
+		{
+			ref.add("%eax");
+			ref.add("%ebx");
+			ref.add("%ecx");
+			ref.add("%edx");
+			ref.add("%esi");
+			ref.add("%edi");
+			ref.add("%esp");
+			ref.add("%ebp");	
+		}
 		if(io)
 		{
 			ioVal = Integer.parseInt(command_string);
-			executeCMD(cmds.get(cmds.size()-1));
+			return executeCMD(cmds.get(cmds.size()-1));
 		}
 		else{
 
@@ -222,7 +234,7 @@ public class y86 {
 				com.setType('D');
 				com.setSubtype(0);
 				com.setParamOne(parts[1]);
-				com.setParamTwo(null);
+				com.setParamTwo(null);	
 			}
 			else if(instruction_name.equals("jle")) {
 				com.setType('D');
@@ -288,21 +300,13 @@ public class y86 {
 			}
 
 			cmds.add(com);
-			executeCMD(com);
+			return executeCMD(com);
 		}
 	}
 
 
 
 	public static void main(String[] args) {
-		ref.add("%eax");
-		ref.add("%ebx");
-		ref.add("%ecx");
-		ref.add("%edx");
-		ref.add("%esi");
-		ref.add("%edi");
-		ref.add("%esp");
-		ref.add("%ebp");
 		System.out.println(cmdPos);
 		processCMD("irmovl $4,%eax");
 		System.out.println(cmdPos);
@@ -325,6 +329,7 @@ public class y86 {
 
 	public static int executeCMD(Command c)
 	{
+
 		//if(!io)
 		cmdPos+=1;
 		if(c.type == 'A'){
@@ -367,7 +372,7 @@ public class y86 {
 			}
 			else if(c.subtype == 0)
 			{
-				//rdch
+				//rdch>
 				io = true;
 				return 3;
 			}

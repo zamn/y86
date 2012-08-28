@@ -15,9 +15,10 @@ public class Application extends Controller {
   }
 
   public static Result interpret(String command) {
-    Test t = new Test();
+    //Test t = new Test();
+    System.out.println("APP: " + command);
     return ok(
-      interpret.render(t.interpret(command))
+      interpret.render(y86.processCMD(command))
     );
   }
 
