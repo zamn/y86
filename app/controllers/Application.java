@@ -8,8 +8,11 @@ import models.*;
 import com.google.gson.*;
 
 public class Application extends Controller {
-  
+
+  private static y86 asm;
+
   public static Result index() {
+    asm = new y86();
     return ok(
       index.render()
     );
@@ -23,7 +26,6 @@ public class Application extends Controller {
   }
 
   public static Result getState(String format) {
-    y86 asm = new y86();
     String result = "";
     if (format.equalsIgnoreCase("standard")) {
       ArrayList temp = asm.getState();
@@ -44,5 +46,5 @@ public class Application extends Controller {
       registers.render()
     );
   }
-  
+
 }

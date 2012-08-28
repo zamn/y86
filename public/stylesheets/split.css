@@ -1,6 +1,7 @@
 html {
   font-family: 'Galdeano', sans-serif;
   font-size: 16px;
+  background-image: url("/assets/images/bg.png");
 }
 
 body:before {
@@ -11,13 +12,18 @@ body:before {
   width: 100%;
   height: 10px;
   -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.8);
-  -moz-box-shadow:    0px 0px 15px rgba(0,0,0,0.8);
-  box-shadow:         0px 0px 15px rgba(0,0,0,0.8);
   z-index: 100;
 }
 
 header {
+  font-family: 'Russo One', sans-serif;
+  font-size: 1.8em;
+  text-align:center;
   margin: 25px 0 45px 0;
+}
+
+h1 {
+  text-shadow: 0px 2px 3px #666;
 }
 
 #content {
@@ -27,35 +33,47 @@ header {
   height:1%;
 }
 
-h1 {
-  text-align:center;
-  font-family: 'Russo One', sans-serif;
-}
-
 #mainArea {
   float:left;
+  -webkit-box-shadow: inset 2px 2px 3px black,
+                      inset -1px -1px 5px black;
+  border: 1px solid #999;
 }
 
 #commandBox {
-  /* ends up as 500px wide */
-  width: 494px;
+  /* Ends up as 500x400. */
+  outline: none;
+  border: none;
+  resize: none;
+  width: 474px;
+  height: 374px;
+  padding: 10px;
+
+  background-color: rgba(255,255,255,0.5);
 }
 
 #registerArea {
-  font-size: 1.2em;
+  font-size: 1.3em;
   float: left;
   margin-left: 10px;
 }
 
 #registers-wrapper {
-  width:280px;
+  width: 280px;
   padding: 0 10px 10px 10px;
   position: relative;
 }
 
 #registers-wrapper table {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  background-color: rgba(255,255,255,0.5);
+  -webkit-box-shadow: -1px 1px 5px rgba(50,50,50,0.4),
+                      inset -1px -2px 3px rgba(20,20,20,0.5);
 }
+th, td {
+  padding: 4px 7px 4px 7px;
+}
+
 #registers, #flags {
   width: 135px;
   float: left;
@@ -68,9 +86,9 @@ h1 {
 }
 
 .green {
-  background-color:green;
+  background-color:rgba(127,175,27,0.8);
 }
 
 * {
-  -webkit-transition: color 2s;
+  -webkit-transition: background-color 2s;
 }
