@@ -1,18 +1,12 @@
-var updateCommandBox = function(text) {
-  $("#commandBox").val(function(i, v) {  return v + text; });
-}
-
 $("#commandBox").focus(function() {
   Mousetrap.bind("enter", function(e) {
     var commands = $("#commandBox").val().split("\n");
     var command = commands[commands.length-1].substring(3);
     if (command.indexOf("%") != -1) {
       command = command.replace("%", "%25");
-    }
-    if (command === "clear") {
+    } if (command === "clear") {
       $("#commandBox").val("=> ");
-    }
-    else if (command !== "") {
+    } else if (command !== "") {
       $.post("/y86/interpret?command=" + command, function(returnCode) {
         switch (parseInt(returnCode, 10)) {
           case 0:
@@ -49,28 +43,32 @@ $("#commandBox").focus(function() {
         programCounter = data[3][0];
 
     //Parse to proper types where necessary.
-    registers      = registers.map(function(x) { return parseInt(x, 10); });
-    flags          = flags.map(    function(x) { return x === "true";    });
+    //registers      = registers.map(function(x) { return parseInt(x, 10); });
+    //flags          = flags.map(    function(x) { return x === "true";    });
 
     //Update the registers table.
     $("#registers tr > :nth-child(2)").each(function(i, x) {
+      greenIfChange(x, $(x).text(), registers[i]);
       $(x).text(registers[i]);
     });
 
     //Update the flags table.
-    $("#pointers tr > :nth-child(2)").each(function(i, x) {
+    $("#flags tr > :nth-child(2)").each(function(i, x) {
+      greenIfChange(x, $(x).text(), flags[i]);
       $(x).text(flags[i]);
     });
 
     //Update the programCounter table.
+    greenIfChange(
+        $("#programCounter td")[0],
+        $("#programCounter td").text(),
+        programCounter);
     $("#programCounter td").text(programCounter);
 
     //Clear and update the stack table.
     $("#stack tr td").parent().remove();
-    stack.forEach(function(x) {
-      $("#stack").append(
-        "<tr><td>"+x+"</td></tr>"
-        );
+    stack.reverse().forEach(function(x) {
+      $("#stack").append("<tr><td>"+x+"</td></tr>");
     });
 
   });
@@ -91,3 +89,12 @@ $("#commandBox").focus();
 $("#commandBox").val("=> ");
 
 $("#registerArea").load("/y86/registers");
+
+//Helper Functions
+var updateCommandBox = function(text) {
+  $("#commandBox").val(function(i, v) {  return v + text; });
+}
+var greenIfChange = function(el, oldval, newval) {
+  oldval !== newval ?
+    $(el).addClass("green") : $(el).removeClass("green");
+}
