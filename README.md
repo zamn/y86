@@ -7,11 +7,12 @@ It is a Y86 Assembler interpreter which allows the user to enter Y86 commands an
 How To Run
 ---------------
 ```
-cd y86
-play run
+$ cd y86
+$ play run
 ```
 
 Prerequisites
 --------------
-Play Framework 2.0 Must be installed.
-Java 1.6+
+Play Framework 2.0 Must be installed.  
+Java JDK 1.6+
+
